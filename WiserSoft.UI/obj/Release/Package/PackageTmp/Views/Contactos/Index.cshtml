@@ -1,0 +1,101 @@
+﻿@model IEnumerable<WiserSoft.UI.Models.Contactos>
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<div class="col-lg-6">
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h4 class="m-b-0 text-white">Ingreso masivo de contactos</h4>
+        </div>
+        <div class="card-body">
+            <br />
+            <b>Seleccione un archivo .xls para cargar sus contactos de manera masiva.</b>
+            @using (Html.BeginForm("Upload", "Contactos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <table>
+                    <tr>
+                        <td>File:</td>
+                        <td>
+                            <input type="file" name="UploadedFile" />
+                        </td>
+                        <td>
+                            <input type="submit" name="Submit" value="Ingreso Masivo" class="btn btn-warning" />
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+<br />
+<div class="col-lg-10">
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h4 class="m-b-0 text-white">Contactos</h4>
+        </div>
+        <div class="card-body">
+            <br />
+            <div class="pull-right">
+                <p>
+                    <button type="submit" title="Añadir nuevo Contacto" class="btn btn-success" onclick="location.href='@Url.Action("Create", "Contactos")'"><i class="fa fa-plus m-l-10"></i></button>
+                </p>
+            </div>
+            <div class="table-responsive">
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Número
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detalle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Correo)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Numero)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Detalle)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Correo)
+                            </td>
+                            <td>
+                                <a title="Editar Contacto" href="@Url.Action("Edit", "Contactos",new { Id_Contacto = item.Id_Contacto })" class="btn btn-success"><i class="fa fa-edit"></i></a> |
+                                @{
+                                        if (item.lista_negra == "No")
+                                        {
+                                    <a title="Añadir a lista Negra" href="@Url.Action("EditListaNegra", "Contactos",new { Id_Contacto = item.Id_Contacto })" class="btn btn-success"><i class="fa fa-ban"></i></a>
+                                        }
+                                        else
+                                        {
+                                    <a title="Eliminar de lista Negra" href="@Url.Action("EditListaNegra", "Contactos",new { Id_Contacto = item.Id_Contacto })" class="btn btn-danger"><i class="fa fa-ban"></i></a>
+                                        }
+                                }|
+                                <a title="Eliminar Contacto" href="@Url.Action("Delete", "Contactos",new { Id_Contacto = item.Id_Contacto })" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WiserSoft/v15/Server/sqlite3
+/WiserSoft.UI/bin/ServiceStack.OrmLite.MySql.dll.config
+/WiserSoft.DATA/bin/Debug/ServiceStack.OrmLite.MySql.dll.config

@@ -1,0 +1,64 @@
+@model IEnumerable<WiserSoft.UI.Models.Contactos>
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div class="col-lg-6">
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h4 class="m-b-0 text-white">Respuestas</h4>
+        </div>
+        <div class="card-body">
+            <br />
+            <div class="table-responsive">
+                @if (Model != null)
+                {
+                <table id="myTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Numero)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Numero)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    <a title="Editar Contacto" class="text-muted " href="@Url.Action("Mensajes", "Respuestas", new { Id_Contacto = item.Id_Contacto })">
+                                        <i class="fa fa-envelope btn btn-success"></i>
+                                        @if (item.lista_negra != "No")
+                                        {
+                                            <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                                        }
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                      </tbody>
+                </table>
+                }
+                else
+                {
+                    <div class="alert alert-danger" id="diverror">
+                    @ViewBag.Mensaje
+                    </div>
+                }
+                <br /><br />
+            </div>
+        </div>
+    </div>
+</div>

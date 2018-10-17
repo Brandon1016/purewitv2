@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WiserSoft.UI.Models.Telefonos>
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<div class="card card-outline-primary">
+    <div class="card-header">
+        <h4 class="m-b-0 text-white">Teléfonos</h4>
+    </div>
+    <div class="card-body">
+        
+        <div class="dataTables_filter">
+            <span>
+                <a href="@Url.Action("Create")" class="btn btn-success">
+                    <span class="fa fa-plus"></span>
+                </a>
+            </span>
+        </div>
+        <div class="table-responsive m-t-40">
+            <table id="myTable" class="table table-bordered table-striped">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending">Número</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending">Usuario</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Id Cuenta</th>
+                        <th class="sorting" tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Token</th>
+                        <th tabindex="0" aria-controls="myTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Numero)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Account_Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Authtoken)
+                            </td>
+                            <td>
+                                <span>
+                                    <a href="@Url.Action("Edit", new { Numero = item.Numero })" class="btn btn-success">
+                                        <span class="fa fa-edit"></span>
+                                    </a>
+                                </span>
+                                |
+                                <span>
+                                    <a href="@Url.Action("Delete", new { Numero = item.Numero })" class="btn btn-danger btn-flat">
+                                        <span class="fa fa-trash"></span>
+                                    </a>
+                                </span>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

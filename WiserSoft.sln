@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiserSoft.DATA", "WiserSoft.DATA\WiserSoft.DATA.csproj", "{EB66FBAA-05BD-4BE3-9838-7147148A3E92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiserSoft.DAL", "WiserSoft.DAL\WiserSoft.DAL.csproj", "{4D722444-B684-46C4-9CE5-5019D26F16F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiserSoft.UI", "WiserSoft.UI\WiserSoft.UI.csproj", "{F2D6912A-CE47-40E6-914F-5112B7791AB8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB66FBAA-05BD-4BE3-9838-7147148A3E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB66FBAA-05BD-4BE3-9838-7147148A3E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB66FBAA-05BD-4BE3-9838-7147148A3E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB66FBAA-05BD-4BE3-9838-7147148A3E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D722444-B684-46C4-9CE5-5019D26F16F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D722444-B684-46C4-9CE5-5019D26F16F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D722444-B684-46C4-9CE5-5019D26F16F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D722444-B684-46C4-9CE5-5019D26F16F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D6912A-CE47-40E6-914F-5112B7791AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D6912A-CE47-40E6-914F-5112B7791AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D6912A-CE47-40E6-914F-5112B7791AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D6912A-CE47-40E6-914F-5112B7791AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

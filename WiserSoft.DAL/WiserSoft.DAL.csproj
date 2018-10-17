@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D722444-B684-46C4-9CE5-5019D26F16F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WiserSoft.DAL</RootNamespace>
+    <AssemblyName>WiserSoft.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.12\lib\netstandard2.0\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="ServiceStack.OrmLite.SqlServer">
+      <HintPath>..\..\..\..\..\Desktop\Dll\ServiceStack.OrmLite.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TheOne.OrmLite, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheOne.OrmLite.0.0.4\lib\netstandard2.0\TheOne.OrmLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="TheOne.OrmLite.MySql, Version=0.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TheOne.OrmLite.MySql.0.0.4\lib\netstandard2.0\TheOne.OrmLite.MySql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>BD.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IComunicaciones.cs" />
+    <Compile Include="Interfaces\IConfirmaciones.cs" />
+    <Compile Include="Interfaces\IContactos.cs" />
+    <Compile Include="Interfaces\IContactos_Por_Lista.cs" />
+    <Compile Include="Interfaces\IDifusiones.cs" />
+    <Compile Include="Interfaces\IEstados.cs" />
+    <Compile Include="Interfaces\IHistoriales.cs" />
+    <Compile Include="Interfaces\IListas.cs" />
+    <Compile Include="Interfaces\ILista_Negra.cs" />
+    <Compile Include="Interfaces\IMensajes.cs" />
+    <Compile Include="Interfaces\IReporteclientesactivos.cs" />
+    <Compile Include="Interfaces\IRespuestas.cs" />
+    <Compile Include="Interfaces\IRoles.cs" />
+    <Compile Include="Interfaces\ITelefonos.cs" />
+    <Compile Include="Interfaces\ITipo_Difusiones.cs" />
+    <Compile Include="Interfaces\IUsuarios.cs" />
+    <Compile Include="Metodos\MComunicaciones.cs" />
+    <Compile Include="Metodos\MConfirmaciones.cs" />
+    <Compile Include="Metodos\MContactos.cs" />
+    <Compile Include="Metodos\MContactos_Por_Lista.cs" />
+    <Compile Include="Metodos\MDifusiones.cs" />
+    <Compile Include="Metodos\MEstados.cs" />
+    <Compile Include="Metodos\MHistoriales.cs" />
+    <Compile Include="Metodos\MListas.cs" />
+    <Compile Include="Metodos\MLista_Negra.cs" />
+    <Compile Include="Metodos\MMensajes.cs" />
+    <Compile Include="Metodos\MReporteclientesactivos.cs" />
+    <Compile Include="Metodos\MRespuestas.cs" />
+    <Compile Include="Metodos\MRoles.cs" />
+    <Compile Include="Metodos\MTelefonos.cs" />
+    <Compile Include="Metodos\MTipo_Difusiones.cs" />
+    <Compile Include="Metodos\MUsuarios.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WiserSoft.DATA\WiserSoft.DATA.csproj">
+      <Project>{eb66fbaa-05bd-4be3-9838-7147148a3e92}</Project>
+      <Name>WiserSoft.DATA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="BD.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>BD.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

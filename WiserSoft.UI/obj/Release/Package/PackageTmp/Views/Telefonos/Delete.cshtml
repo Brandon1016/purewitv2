@@ -1,0 +1,34 @@
+﻿@model WiserSoft.UI.Models.Telefonos
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<h2>Eliminar Teléfono</h2>
+<h3>¿Estás seguro que quieres eliminar el Teléfono?</h3>
+<div>
+    <h4>Telefonos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la lista", "Index")
+        </div>
+    }
+</div>

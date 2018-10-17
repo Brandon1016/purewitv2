@@ -1,0 +1,70 @@
+﻿
+@model WiserSoft.UI.Models.Telefonos
+@{
+    ViewBag.Title = "Nuevo Telefono";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+<div class="card" style="width:700px; height:auto">
+    <div class="card-body">
+        <h2>Ingresar Nuevo Teléfono</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.Label("Número de Teléfono:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Numero, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numero, "", new { @class = "text-danger" })
+                        @Html.ValidationMessage("errornumero", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("ID de la cuenta:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Account_Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Account_Id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Token de autenticación:", htmlAttributes: new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Authtoken, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Authtoken, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Usuario:", htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.Username, new SelectList(ViewBag.ListasUsername, "Value", "Text"), "Seleccione un usuario:", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+                <center>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            
+                            @if (ViewBag.Mensaje != null)
+                            {
+                                <!--div class="alert alert-danger" id="diverror" style="display:none"-->
+                                @Html.ValidationMessage("error", new { @class = "alert alert-danger" })
+                                <!--/div-->
+                            }
+                            <br />
+                            <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">
+                                <i class="fa fa-save"></i>Guardar
+                            </button>
+                            <span>
+                                <a href="@Url.Action("Index")" class="btn btn-dark btn-flat m-b-30 m-t-30">
+                                    <span class="fa fa-times">Cancelar</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        }
+    </div>
+</div>

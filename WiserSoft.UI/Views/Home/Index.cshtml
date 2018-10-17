@@ -1,0 +1,100 @@
+﻿@model WiserSoft.UI.Models.Usuarios
+
+@{ 
+    Layout = null;
+    ViewBag.title = "Login";
+}
+
+<DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <title>Login</title>
+
+    <link href="~/Content/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="~/Content/css/helper.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    
+</head>
+
+<body class="fix-header fix-sidebar">
+
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+
+    <div id="main-wrapper">
+
+        <div class="unix-login">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-4">
+                        <div class="login-content card">
+                            <div class="login-form">
+                                <h4>Login</h4>
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <div class="form-group">
+                                        <label>Nombre de usuario</label>
+                                        @Html.TextBoxFor(model => model.Username, new { @placeholder = "Nombre de usuario", @class = "form-control" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        @Html.PasswordFor(model => model.Password, new { @placeholder = "Password", @class = "form-control" })
+                                    </div>
+
+                                    if (ViewBag.Mensaje != "no")
+                                    {
+                                        <!--div class="alert alert-danger" id="diverror" style="display:none"-->
+                                        @Html.ValidationMessage("errorLogin", new { @class = "alert alert-danger" })
+                                        <!--/div-->
+                                    }
+
+                                    <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">Sign in</button>
+                                    
+                                    
+
+                                    <div class="register-link m-t-15 text-center">
+                                        <p>No tienes una cuenta ? <a href="@Url.Action("Index", "Usuarios")">Registrate aquí</a></p>
+                                    </div>
+                                    
+                                }
+                            </!--div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/Content/js/lib/jquery/jquery.min.js"></script>
+
+    <script src="~/Content/js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="~/Content/js/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="~/Content/js/jquery.slimscroll.js"></script>
+
+    <script src="~/Content/js/sidebarmenu.js"></script>
+
+    <script src="~/Content/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
+    <script src="~/Content/js/custom.min.js"></script>
+
+    <!--script src="~/Scripts/Login/index.js"></!--script-->
+
+</body>
+
+</html>

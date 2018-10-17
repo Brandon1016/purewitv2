@@ -1,0 +1,479 @@
+﻿@model IEnumerable<WiserSoft.UI.Models.Contactos>
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-group f-s-40 color-primary"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <h2>@ViewBag.totalContactos</h2>
+                        <p class="m-b-0">Total Contactos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-envelope f-s-40 color-success"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <h2>@ViewBag.totalSMS</h2>
+                        <p class="m-b-0">Total SMS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-phone f-s-40 color-warning"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <h2>@ViewBag.totalLlamadas</h2>
+                        <p class="m-b-0">Total Llamadas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card p-30">
+                <div class="media">
+                    <div class="media-left meida media-middle">
+                        <span><i class="fa fa-at f-s-40 color-danger"></i></span>
+                    </div>
+                    <div class="media-body media-text-right">
+                        <h2>@ViewBag.totalLCorreos</h2>
+                        <p class="m-b-0">Total Correos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="col-lg-12">
+    <div class="card card-outline-primary">
+        <div class="card-body">
+
+            <div class="row">
+                @if (ViewBag.cantidadDifu != 0)
+                {
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4><b>Estado de difusiones creadas</b></h4>
+                            </div>
+                            <div class="card-content">
+                                <div id="basic-Pie" style="height: 370px"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.nombre1 != null)
+                {
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4><b>Estado de mensajes de última campaña de texto llamada:</b><br>@ViewBag.nombre1</h4>
+                            </div>
+                            <div class="card-content">
+                                <div id="basic-Pie1" style="height: 370px"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.nombre2 != null)
+                {
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4><b>Estado de mensajes de última campaña de voz llamada:</b><br>@ViewBag.nombre2</h4>
+                            </div>
+                            <div class="card-content">
+                                <div id="basic-Pie2" style="height: 370px"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.nombre3 != null)
+                {
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-title">
+                            <h4><b>Estado de mensajes de última campaña de correo llamada:</b><br>@ViewBag.nombre3</h4>
+                        </div>
+                        <div class="card-content">
+                            <div id="basic-Pie3" style="height: 370px"></div>
+                        </div>
+                    </div>
+                </div>
+                }
+                @if (ViewBag.nombre4 != null)
+                {
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <h4><b>Reporte de Contactos más activos</b></h4>
+                              </div>
+                            <div class="card-content">
+                                <div id="basic-Pie4" style="height: 370px"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-title">
+                        <h4><b>Listado Contactos</b></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table id="example24" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Nombre
+                                        </th>
+                                        <th>
+                                            Número
+                                        </th>
+                                        <th>
+                                            Detalle
+                                        </th>
+                                        <th>
+                                            Correo
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach( var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                               @Html.DisplayFor(modelItem => item.Nombre)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Numero)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Detalle)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Correo)
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<!--Grafico Echart-->
+<script src="~/Content/js/lib/echart/echarts.js"></script>
+<script src="~/Content/js/lib/jquery/jquery.min.js"></script>
+<!--script src="~/Content/js/lib/echart/echarts-init.js"></script-->
+
+@if (ViewBag.cantidadDifu != 0)
+{
+    <script>
+        $(document).ready(function() {
+
+
+            var dom = document.getElementById("basic-Pie");
+            var bpChart = echarts.init(dom);
+
+            var datos = @Html.Raw(Json.Encode(ViewBag.data));
+            var groups = @Html.Raw(Json.Encode(ViewBag.group));
+
+            varas = []
+            @foreach (var item in ViewBag.data)
+            {
+                <text> varas.push({ name: "@item.name", value:"@item.value"}) </text>
+            }
+
+            var app = {};
+            option = null;
+            option = {
+                color: ['#62549a','#4aa9e9', '#ff6c60','#eac459', '#25c3b2' ],
+                tooltip : {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient : 'vertical',
+                    x : 'left',
+                    data:groups
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'Source',
+                        type:'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:varas
+                    }
+                ]
+            };
+
+            if (option && typeof option === "object") {
+                bpChart.setOption(option, false);
+            }
+
+
+
+            window.onresize = function () {
+
+                bpChart.resize();
+
+            };
+        
+        });
+    </script>
+}
+
+@if (ViewBag.nombre1 != null)
+{
+    <script>
+        $(document).ready(function()
+        {
+            /* EChart Pie 3*/
+            var dom = document.getElementById("basic-Pie1");
+            var bpChart = echarts.init(dom);
+
+            var datos1  = @Html.Raw(Json.Encode(ViewBag.data1));
+            var groups1 = @Html.Raw(Json.Encode(ViewBag.group1));
+
+            varas1 = []
+            @foreach (var item in ViewBag.data1)
+            {
+                <text> varas1.push({ name: "@item.name", value:"@item.value"}) </text>
+            }
+
+            var app = {};
+            option = null;
+            option = {
+                color: ['#62549a','#4aa9e9', '#ff6c60','#eac459', '#25c3b2' ],
+                tooltip : {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient : 'vertical',
+                    x : 'left',
+                    data:groups1
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'Source',
+                        type:'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:varas1
+                    }
+                ]
+            };
+
+            if (option && typeof option === "object") {
+                bpChart.setOption(option, false);
+            }
+
+
+
+            window.onresize = function () {
+
+                bpChart.resize();
+
+            };
+        });
+
+    </script>
+}
+
+@if (ViewBag.nombre2 != null)
+{
+    <script>
+        $(document).ready(function()
+        {
+            /* EChart Pie 3*/
+            var dom = document.getElementById("basic-Pie2");
+            var bpChart = echarts.init(dom);
+
+            var datos2  = @Html.Raw(Json.Encode(ViewBag.data2));
+            var groups2 = @Html.Raw(Json.Encode(ViewBag.group2));
+
+            varas2 = []
+            @foreach (var item in ViewBag.data2)
+            {
+                <text> varas2.push({ name: "@item.name", value:"@item.value"}) </text>
+            }
+
+            var app = {};
+            option = null;
+            option = {
+                color: ['#62549a','#4aa9e9', '#ff6c60','#eac459', '#25c3b2' ],
+                tooltip : {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient : 'vertical',
+                    x : 'left',
+                    data:groups2
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'Source',
+                        type:'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:varas2
+                    }
+                ]
+            };
+
+            if (option && typeof option === "object") {
+                bpChart.setOption(option, false);
+            }
+
+
+
+            window.onresize = function () {
+
+                bpChart.resize();
+
+            };
+        });
+
+    </script>
+}
+
+@if (ViewBag.nombre3 != null)
+{
+    <script>
+        $(document).ready(function()
+        {
+            /* EChart Pie 3*/
+            var dom = document.getElementById("basic-Pie3");
+            var bpChart = echarts.init(dom);
+
+            var datos3  = @Html.Raw(Json.Encode(ViewBag.data3));
+            var groups3 = @Html.Raw(Json.Encode(ViewBag.group3));
+
+            varas3 = []
+            @foreach (var item in ViewBag.data3)
+            {
+                <text> varas3.push({ name: "@item.name", value:"@item.value"}) </text>
+            }
+
+            var app = {};
+            option = null;
+            option = {
+                color: ['#62549a','#4aa9e9', '#ff6c60','#eac459', '#25c3b2' ],
+                tooltip : {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)'
+                },
+                legend: {
+                    orient : 'vertical',
+                    x : 'left',
+                    data:groups3
+                },
+                calculable : true,
+                series : [
+                    {
+                        name:'Source',
+                        type:'pie',
+                        radius : '55%',
+                        center: ['50%', '60%'],
+                        data:varas3
+                    }
+                ]
+            };
+
+            if (option && typeof option === "object") {
+                bpChart.setOption(option, false);
+            }
+
+
+
+            window.onresize = function () {
+
+                bpChart.resize();
+
+            };
+        });
+
+    </script>
+}
+
+@if (ViewBag.nombre4 != 0)
+{
+    <script>
+    $(document).ready(function() {
+        
+        var dom = document.getElementById("basic-Pie4");
+        var bpChart = echarts.init(dom);
+
+        var datos4 = @Html.Raw(Json.Encode(ViewBag.data4));
+        var groups4 = @Html.Raw(Json.Encode(ViewBag.group4));
+
+        varas4 = []
+        @foreach (var item in ViewBag.data4) {
+            <text> varas4.push({ name: "@item.name", value:"@item.value"}) </text>
+        }
+
+        var app = {};
+        option = null;
+        option = {
+            color: ['#62549a','#4aa9e9', '#ff6c60','#eac459', '#25c3b2' ],
+            tooltip : {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient : 'vertical',
+                x : 'left',
+                data:groups4
+            },
+            calculable : true,
+            series : [
+                {
+                    name:'Source',
+                    type:'pie',
+                    radius : '55%',
+                    center: ['50%', '60%'],
+                    data:varas4
+                }
+            ]
+        };
+
+        if (option && typeof option === "object") {
+            bpChart.setOption(option, false);
+        }
+        
+        window.onresize = function () {
+
+            bpChart.resize();
+
+        };
+        
+    });
+    </script>
+}

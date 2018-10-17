@@ -1,0 +1,188 @@
+﻿@model WiserSoft.UI.Models.Difusiones
+
+
+
+
+@{
+    ViewBag.Title = "Difusión";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+    <div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card card-outline-primary">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Creación de difusión</h4>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+
+                    <div class="form-body">
+                        <h3 class="box-title m-t-40">Campaña</h3>
+                        <hr>
+                        <div class="row p-t-20">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre de campaña</label>
+                                    @Html.TextBoxFor(model => model.Descripcion, new { @placeholder = "Ejm: Aviso a estudiantes", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group ">
+                                    @Html.Label("Lista de contactos:", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownListFor(model => model.Id_Lista , 
+                                   new SelectList(ViewBag.Listas, "Value", "Text"),
+                                   "Seleccione una lista:", 
+                                   new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Id_Lista, "", new { @class = "text-danger" })
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <!--/row-->
+                        <div class="checkbox">
+                            <label>
+                                @Html.CheckBox("checkcuando", true) Envio inmediato de la difusión
+                            </label>
+                            <input type="text" name="tipoEnvio" id="tipoEnvio" value="inmediato" style="display:none"/>
+                        </div>
+                        <div class="row" id="divprogramado" style="display:none">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Fecha:</label>
+                                    <input type="date" class="form-control" name="fechaPro" id="fechaPro" placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="appt-time">Time:</label>
+                                    <input type="time" class="form-control" name="horaPro" id="horaPro" />
+                                </div>
+                            </div>
+                        </div>
+                        @Html.ValidationMessage("fechaerror", new { @class = "text-danger" })
+                        <h3 class="box-title m-t-40">Mensaje</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group ">
+                                    @Html.Label("Tipo de mensaje:", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownListFor(model => model.Id_Tipo_Mensaje, new SelectList(ViewBag.ListasTipoDifusion, "Value", "Text"), "Seleccione un tipo de mensaje:", new { @class = "form-control", @id = "Tipo_Mensaje" })
+                                    @Html.ValidationMessageFor(model => model.Id_Tipo_Mensaje, "", new { @class = "text-danger" })
+                                </div>
+                                
+                                <div class="row" id="divEmail" style="display:none">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label">Password:</label>
+                                            @Html.TextBoxFor(model => model.passwordCorreo, new { @placeholder = "xxxx", @class = "form-control", type = "password"})
+                                        </div>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessage("errorPassword", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group ">
+                                    @Html.Label("Mensaje a enviar:", htmlAttributes: new { @class = "control-label" })
+                                    @Html.DropDownListFor(model => model.Id_Mensaje, new SelectList(ViewBag.ListaMensajes, "Value", "Text"), "Seleccione un mensaje:", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Id_Mensaje, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row p-t-20" style="display:none">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Estado</label>
+                                    @Html.TextBoxFor(model => model.Id_Estado, new { @Value= "1", @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="text-align:center">
+                        @Html.ValidationMessage("error", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-actions text-center">
+                        <button type="submit" class="btn btn-success"> <i class="fa fa-send m-l-10"></i> Enviar</button>
+                        <button type="button" class="btn btn-inverse">Cancelar</button>
+                    </div>
+                    
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <!--Segunda parte donde se muestra las campañas creadas-->
+    <div class="col-lg-6">
+        <div class="card card-outline-primary">
+            <div class="card-header">
+                <h4 class="m-b-0 text-white">Historial de difusiones</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th>Fecha de Activación</th>
+                                <th>Tipo</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.ListaDeDifusiones)
+                            {
+                                <tr>
+                                    <td>@item.Descripcion</td>
+                                    <td>@item.Fecha_Activacion</td>
+                                    <td>@item.Des_tipo_Mensaje </td>
+                                    <td>
+                                        @if (item.Id_Estado == 1)
+                                        {
+                                            <span class="badge badge-info">Pendiente</span>
+                                        }
+                                        else
+                                        {
+                                            if (item.Id_Estado == 2)
+                                            {
+                                                <span class="badge badge-warning">En proceso...</span>
+                                            }
+                                            else
+                                            {
+                                                if (item.Id_Estado == 3)
+                                                {
+                                                    <span class="badge badge-success">Completo</span>
+                                                }
+                                            }
+
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="~/Content/js/lib/jquery/jquery.min.js"></script>
+<script src="~/Scripts/Difusion/Index.js"></script>
+
+

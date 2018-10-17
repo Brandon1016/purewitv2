@@ -1,0 +1,111 @@
+﻿@model WiserSoft.UI.Models.Usuarios
+
+@{
+    ViewBag.Title = "Perfil de usuario";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-two">
+                    <header>
+                        <div class="avatar">
+                            <img src="https://portal.cta-observatory.org/help/SiteAssets/SitePages/HelpDesk%20new/user.png?Mobile=1&Source=%2Fhelp%2F%5Flayouts%2Fmobile%2Fview%2Easpx%3FList%3Dd1f94a78%252D1806%252D46e3%252D931d%252D68fdad883184%26View%3Dabe42809%252Dc1ae%252D4b90%252D9dc6%252Dbfe3d0b3ee9d%26RootFolder%3D%252Fhelp%252FSiteAssets%252FSitePages%252FHelpDesk%2520new%26CurrentPage%3D1" alt="Priscilla Bravo" />
+                        </div>
+                    </header>
+
+                    <h3>@ViewBag.userId</h3>
+                    <div class="desc"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card card-outline-primary">
+                <div class="card-header">
+                    <h4 class="m-b-0 text-white">Edición del Perfil</h4>
+                </div>
+                <hr />
+                <div class="card-body">
+                    <div class="form-body">
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre usuario</label>
+                                    @Html.TextBoxFor(model => model.Username, new { @readonly = "readonly", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nombre Completo</label>
+                                    @Html.TextBoxFor(model => model.Fullname, new { @placeholder = "Ejm: Francis Tejeda ", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Fullname, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Email</label>
+                                    @Html.TextBoxFor(model => model.Correo, new { @placeholder = "Ejm: francis@email.com", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    @Html.TextBoxFor(model => model.Password, new {  @class = "form-control", type = "Password" })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">Confirmar Password</label>
+                                    @Html.TextBoxFor(model => model.ConfirmaPassowrd, new { @class = "form-control", type = "Password" })
+                                    @Html.ValidationMessageFor(model => model.ConfirmaPassowrd, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row" style="display:none">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.Id_rol)
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-actions text-center">
+                            <button type="submit" class="btn btn-success"> <i class="fa fa-save m-l-10"></i> Guardar</button>
+                            <a href="@Url.Action("Profile", "Usuarios")" class="btn btn-inverse">Cancelar</a>
+                        </div>
+                        <div style="text-align:center">
+                            @Html.ValidationMessage("error", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+

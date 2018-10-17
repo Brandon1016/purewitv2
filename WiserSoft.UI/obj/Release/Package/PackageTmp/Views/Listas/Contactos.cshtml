@@ -1,0 +1,161 @@
+﻿@using System.Threading.Tasks
+    @{
+    Layout = "~/Views/Shared/Master.cshtml";
+    }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<div class="col-lg-8">
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h4 class="m-b-0 text-white">Contactos</h4>
+        </div>
+        <div class="card-body">
+            <br />
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs customtab2" role="tablist">
+                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home7" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span><span class="hidden-xs-down">Contactos en Lista</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile7" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Agregar Contactos</span></a> </li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="home7" role="tabpanel">
+                    <div class="p-20">
+                        <div class="table-responsive">
+                            <table id="tbContactos" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>                                      
+                                        <th>Nombre Contacto</th>
+                                        <th>Número</th>                               
+                                    </tr>
+
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane  p-20" id="profile7" role="tabpanel">
+                    <div class="table-responsive">
+                        <table id="tbContactosA" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Telefono</th>
+                                    <th>Nombre</th>
+                                    <th>Descripcion</th>
+                                    <th>Correo</th>
+                                    <th></th>
+                                </tr>
+
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                   
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+    var ContactoA;
+    
+    $(document).ready(function () {
+
+        getPerfilesUsuarios();
+        getPerfilesUsuarios1();
+        
+
+        $('#tbContactosA tbody').on('click', 'tr', function () {
+            ////debugger;
+            var prueba = @ViewBag.Lista
+            
+            var table = $('#tbContactosA').DataTable();
+            $("#tbContactosA tbody tr").removeClass('row_selected');
+            $(this).toggleClass('row_selected');
+            var fila = table.row(this).data();
+            ContactoA = fila.Id_Contacto;
+            console.log("entrando...");
+            console.log(ContactoA);
+      
+             $.ajax({
+                url: '/Listas/Insertar',
+                type: 'POST',
+                 data: { 'contacto': ContactoA, 'lista': prueba },
+                 success: function (response) {
+                  
+                     alert("Se inserto correctamente");
+                     getPerfilesUsuarios1();
+                     getPerfilesUsuarios()
+                }
+            });
+
+        });
+
+    });
+      
+
+    function getPerfilesUsuarios() {
+
+        var prueba = @ViewBag.Lista
+        
+        $.ajax({
+            url: '/Listas/ListarContactos',
+            data: { "idLista": prueba },
+            type: 'GET',
+            success: function (response) {
+                $('#tbContactos').DataTable({
+                    data: response,
+                    columns: [
+                        { "data": "Nombre" },
+                        { "data": "Numero" }
+
+                    ],
+                    
+                    "bDestroy": true
+                });
+            }
+        });
+    }
+
+    function getPerfilesUsuarios1() {
+
+        var prueba = @ViewBag.Lista
+    
+        $.ajax({
+            url: '/Listas/ContactosV',
+            data: { "idLista": prueba },
+            type: 'GET',
+            success: function (response) {
+
+                //$.each(response, function (i, item) {
+                    $('#tbContactosA').DataTable({
+                        data: response,
+                        columns: [
+                            { "data": "Id_Contacto", 'visible': false },
+                            { "data": "Numero" },
+                            { "data": "Nombre" },
+                            { "data": "Detalle" },
+                            { "data": "Correo" },
+                           // { "defaultContent": "<button class='btn btn - primary' onclick='pruebita()'><i class='fa fa - trash'></i>Eliminar</button>" }
+                            { "defaultContent": "<button class= 'btn btn-success' > <i class='fa fa-save m-l - 10'></i> Agregar</button >" }
+                           
+
+                        ],
+                       
+                        "bDestroy": true
+                    //});
+                });
+            }
+        });
+    }
+
+
+
+
+</script>
+

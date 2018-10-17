@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TheOne.OrmLite.MySql</name>
+    </assembly>
+    <members>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlBoolConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlBoolConverter.ColumnDefinition">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlDateTimeConverter">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlDateTimeConverter.ToQuotedString(System.Type,System.Object)">
+            <inheritdoc />
+            <remarks>
+                ms not contained in format. MySql ignores ms part anyway
+                <para>for more details see: http://dev.mysql.com/doc/refman/5.1/en/datetime.html</para>
+            </remarks>
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlDateTimeConverter.FromDbValue(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlDateTimeOffsetConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlDateTimeOffsetConverter.ColumnDefinition">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlDateTimeOffsetConverter.FromDbValue(System.Type,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlDecimalConverter">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlDecimalConverter.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlGuidConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlGuidConverter.ColumnDefinition">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlGuidConverter.ToQuotedString(System.Type,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlIntegerConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlIntegerConverter.ColumnDefinition">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlByteConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlByteConverter.DbType">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlSByteConverter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlSByteConverter.DbType">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlInt16Converter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlInt16Converter.DbType">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlUInt16Converter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlUInt16Converter.DbType">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlInt32Converter">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlUInt32Converter">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlUInt32Converter.DbType">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlStringConverter">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlStringConverter.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.Converters.MySqlStringConverter.MaxColumnDefinition">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.Converters.MySqlCharArrayConverter">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.Converters.MySqlCharArrayConverter.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.MySqlDialectProvider">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProvider.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProvider.CreateConnection(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProvider.CreateParam">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.MySqlDialectProviderBase">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SelectIdentitySql">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.MySqlDialectProviderBase.AutoIncrementDefinition">
+            <inheritdoc />
+        </member>
+        <member name="P:TheOne.OrmLite.MySql.MySqlDialectProviderBase.DefaultValueFormat">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetLoadChildrenSubSelect``1(TheOne.OrmLite.Core.Expressions.OrmLiteSqlExpression{``0})">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetQuotedValue(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetQuotedValue(System.Object,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetTableName(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetTableNameWithSchema(System.String,System.String)">
+            <summary>
+                <para> https://stackoverflow.com/a/11618350 </para>
+                In MySQL, physically, a schema is synonymous with a database.
+                You can substitute the keyword SCHEMA instead of DATABASE in MySQL SQL syntax,
+                for example using CREATE SCHEMA instead of CREATE DATABASE.
+            </summary>
+            <remarks>
+                should already called NamingStrategy.GetTableName
+            </remarks>
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetQuotedTableName(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetQuotedName(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.GetColumnDefinition(TheOne.OrmLite.Core.Definition.OrmLiteFieldDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.DoesTableExist(System.Data.IDbCommand,System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ToPostDropTableStatement(TheOne.OrmLite.Core.Definition.OrmLiteModelDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ToPostCreateTableStatement(TheOne.OrmLite.Core.Definition.OrmLiteModelDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ToCreateTableStatement(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SqlExpression``1">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SqlConflict(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SqlCurrency(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SqlCast(System.Object,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.SqlBool(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.OpenAsync(System.Data.IDbConnection,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ExecuteReaderAsync(System.Data.IDbCommand,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ExecuteNonQueryAsync(System.Data.IDbCommand,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ExecuteScalarAsync(System.Data.IDbCommand,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ReadAsync(System.Data.IDataReader,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ReaderEach``1(System.Data.IDataReader,System.Func{``0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ReaderEach``1(System.Data.IDataReader,System.Action,``0,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlDialectProviderBase.ReaderRead``1(System.Data.IDataReader,System.Func{``0},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:TheOne.OrmLite.MySql.MySqlExpression`1">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlExpression`1.#ctor(TheOne.OrmLite.Core.IOrmLiteDialectProvider)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlExpression`1.GetCastSql(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlExpression`1.GetInSubQuerySql(System.Object,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:TheOne.OrmLite.MySql.MySqlExpression`1.ToDeleteRowStatement">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

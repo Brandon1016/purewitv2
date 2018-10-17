@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/images/favicon.png">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/css/helper.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
+    <!--[if lt IE 9]>
+        <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="fix-header">
+    <!-- Preloader - style you can find in spinners.css -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+        </svg>
+    </div>
+    <!-- Main wrapper  -->
+    <div id="main-wrapper">
+        <!-- header header  -->
+        <div class="header">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- Logo -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="@Url.Action("UserDashboard", "Home")">
+                        <!-- Logo icon -->
+                        <b><img src="~/Content/images/logo.png" alt="homepage" class="dark-logo" /></b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span><img src="~/Content/images/logo-text.png" alt="homepage" class="dark-logo" /></span>
+                    </a>
+                </div>
+                <!-- End Logo -->
+                <div class="navbar-collapse">
+                    <!-- toggle and nav items -->
+                    <ul class="navbar-nav mr-auto mt-md-0">
+                        <!-- This is  -->
+
+                    </ul>
+                    <!-- User profile and search -->
+                    <ul class="navbar-nav my-lg-0">
+
+
+                        <!-- Messages -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" id="campoNotificacion" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Tienes nuevos mensajes</div>
+                                    </li>
+                                    <li>
+                                        <div id="mensajesDeUsuarios" class="message-center">
+                                            
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Ver todos los mensajes</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- End Messages -->
+                        <!-- Profile -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="data:image/png;base64,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" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right animated zoomIn">
+                                <ul class="dropdown-user">
+                                    <li><a href="@Url.Action("Profile", "Usuarios")"><i class="ti-user"></i> Profile</a></li>
+                                    <li><a href="@Url.Action("Logout", "Home")"><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End header header -->
+        <!-- Left Sidebar  -->
+        <div class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-devider"></li>
+                        <li class="nav-label">Menú</li>
+                        <li> <a href="@Url.Action("UserDashboard", "Home")"><i class="fa fa-tachometer"></i><span class="">Dashboard</span></a></li>
+                        @if (ViewBag.Rol == "2")
+                        {
+                            <li> <a href="@Url.Action("Index", "Telefonos")"><i class="fa fa-phone-square"></i><span class="">Asignar números</span></a></li>
+                        }
+                        <li> <a href="@Url.Action("Index", "Contactos")"><i class="fa fa-group"></i><span class="">Contactos</span></a></li>
+                        <li> <a href="@Url.Action("Index", "Listas")"><i class="fa fa-tags"></i><span class="">Listas</span></a></li>
+                        <li> <a href="@Url.Action("Index", "Mensajes")"><i class="fa fa-bold"></i><span class="">Creación de mensajes</span></a></li>
+                        <li> <a href="@Url.Action("Index", "Difusion")"><i class="fa fa-envelope"></i><span class="">Envio de mensajes</span></a></li>
+                        <li> <a href="@Url.Action("Index", "Respuestas")"><i class="fa fa-comments"></i><span class="">Respuestas</span></a></li>
+                        <!--<li class="nav-label">Extra</li>
+                        <li> <a href="#"><i class="fa fa-ban"></i><span class="">Lista Negra</span></a></li>-->
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </div>
+        <!-- End Left Sidebar  -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper" style="height:1200px;">
+            <!-- Bread crumb -->
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h3 class="text-primary">@ViewBag.Title</h3>
+                </div>
+            </div>
+            <!-- End Bread crumb -->
+            <!-- Container fluid  -->
+            <div class="container-fluid">
+                <!-- Start Page Content -->
+                                <!--Nosotros trabajamos aqui-->
+                                @RenderBody()
+                <!-- End PAge Content -->
+            </div>
+            <!-- End Container fluid  -->
+            <!-- footer -->
+            <footer class="footer"> © 2018 All rights reserved. Template designed by <b>PureWite</b></footer>
+            <!-- End footer -->
+        </div>
+        <!-- End Page wrapper  -->
+    </div>
+    <!-- End Wrapper -->
+    <!-- All Jquery -->
+    <script src="~/Content/js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="~/Content/js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="~/Content/js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/Content/js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/Content/js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="~/Content/js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/Content/js/custom.min.js"></script>
+
+    <!--Datatable js-->
+    <script src="~/Content/js/lib/datatables/datatables.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="~/Content/js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <script src="~/Content/js/lib/datatables/datatables-init.js"></script>
+
+    
+</body>
+
+<script>
+
+    $(document).ready(function () {
+        
+        //setInterval(function () { getPerfilesUsuarios_(); }, 10000);
+    });
+
+     function getPerfilesUsuarios_() {
+
+        $.ajax({
+            url: '/Respuestas/ListarRecibidos',
+            type: 'GET',
+            cache: false,
+            success: function (response) {
+                
+                var contador = 0;
+                $("#mensajesDeUsuarios").html("");
+                $.each(response, function (i, item) {
+                    contador = contador + 1;
+                    var mensaje = item.Detalle;
+                    
+                    $("#mensajesDeUsuarios").append(
+                        "<a href='/Respuestas/Mensajes?Id_Contacto=" + item.Id_Contacto + "'>" +
+                        "    <div class='user-img'> <img src='data:image/png;base64,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' alt='user' class='img-circle'> <span class='profile-status  pull-right'></span> </div>" +
+                        "    <div class='mail-contnet'>" +
+                        "        <h5>" + item.Nombre + "</h5> <span class='mail-desc'>" + mensaje.substring(0, 20) + "...</span> <span class='time'>" + item.lista_negra + "</span>" +
+                        "    </div>" +
+                        "</a>"
+                    )
+                });
+                
+                if (contador > 0)
+                {
+                    $("#campoNotificacion").html("");
+                    $("#campoNotificacion").append(
+                        "<i class='fa fa-envelope'></i>" +
+                        "<div class='notify'> <span class='heartbit'></span> <span class='point'></span> </div>"
+                    );
+                }
+            }
+        });
+    }
+
+
+
+</script>
+
+</html>

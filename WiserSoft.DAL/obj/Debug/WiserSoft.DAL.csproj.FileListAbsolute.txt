@@ -1,0 +1,16 @@
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\WiserSoft.DAL.dll.config
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\WiserSoft.DAL.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\WiserSoft.DAL.pdb
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\TheOne.OrmLite.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\TheOne.OrmLite.MySql.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\WiserSoft.DATA.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\ServiceStack.Interfaces.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\WiserSoft.DATA.pdb
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\TheOne.OrmLite.xml
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\TheOne.OrmLite.MySql.xml
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\ServiceStack.Interfaces.xml
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\obj\Debug\WiserSoft.DAL.csprojResolveAssemblyReference.cache
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\obj\Debug\WiserSoft.DAL.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\obj\Debug\WiserSoft.DAL.pdb
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\MySql.Data.dll
+D:\Universidad\Analisis lll\Este\pureWit-0.7\WiserSoft.DAL\bin\Debug\MySql.Data.xml

@@ -1,0 +1,107 @@
+
+
+@{
+
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+<div class="col-lg-6">
+    <div class="card card-outline-primary">
+        <div class="card-header">
+            <h4 class="m-b-0 text-white">Mensajes</h4>
+        </div>
+        <div class="card-body">
+            <div id="principal" class="recent-comment">
+                <br />
+            </div>
+            
+            <div class="col-lg-12">
+                @model WiserSoft.UI.Models.Comunicaciones
+                @using (Html.BeginForm("Mensajes", "Respuestas", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.EditorFor(model => model.Id_Contacto, new { htmlAttributes = new { @style = "display:none" } })
+                    @Html.EditorFor(model => model.Mensaje, new { htmlAttributes = new { @class = "form-control", @placeholder = "Escriba el mensaje" } })
+                    <div align='right'>
+                        <br />
+                        <button type="submit" class="btn btn-purple waves-effect waves-light"> <span>Enviar</span> <i class="fa fa-send m-l-10"></i> </button>
+                        
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        var prueba = @ViewBag.Contacto
+        getPerfilesUsuarios();
+    });
+
+     function getPerfilesUsuarios() {
+
+        var prueba = @ViewBag.Contacto
+        var usuario = "@ViewBag.prueba"
+        $.ajax({
+            url: '/Respuestas/ListarMensajes',
+            data: { "Id_Contacto": prueba },
+            type: 'GET',
+            cache: false,
+                success: function (response) {
+                    $.each(response, function (i, item) {
+                        var date = item.Fecha;
+                        var nowDate = new Date(parseInt(date.substr(6)));
+                        var month = nowDate.getMonth() + 1;
+                        var day = nowDate.getDate();
+                        var year = nowDate.getFullYear();
+                        var date1 = day + "/" + month + "/" + year;
+                                  
+                        if (item.Estado == 5 || item.Estado == 6) {
+
+                            $("#principal").append(
+                                "<div class='col - md - 3'>" +                
+                                "<div class='media' style='border-radius: 19px; border-color: #F0EBEB; border-right:1px solid #e7e7e7;'>" +
+                                "<div class='media-left'> " +
+                                "</div>" +
+                                " <div class='media-body' style='margin:5px'> " +
+                                "   <h4 class='media-heading'><a href='#' class='fa fa-user'></a>   " + item.Nombre + "</h4> " +
+                                "   <p>" + item.Mensaje + "</p> " +
+                                "   <div align='right'><p>" + date1 + "</p></div>" +
+                                " </div> " +
+                                " </div >" +
+                                " </div ><br />")
+                            
+                        } else {
+                            if (item.Estado == 4) {
+
+                                $("#principal").append(
+                                    "<div class='col - md - 3'>" +
+                                    "<div class='media' style='border-radius: 19px; border-color: #F0EBEB; border-right:1px solid #e7e7e7; background-color:#F3F0F0;'>" +
+                                    "<div class='media-left'> " +
+                                    "</div>" +
+                                    " <div class='media-body' style='margin:5px'> " +
+                                    " <h4 class='media-heading'><a href='#' class='fa fa-user-o'></a>   " + usuario + "</h4> " +
+                                    "   <p>" + item.Mensaje + "</p> " +
+                                    "   <div align='right'><p>" + date1 + "</p></div>" +
+                                    " </div> " +
+                                    " </div >" +
+                                    " </div ><br />")
+                            }
+                        }
+
+                        });
+            }
+        });
+    }
+
+
+
+</script>
